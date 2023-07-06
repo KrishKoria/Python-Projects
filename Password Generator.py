@@ -31,5 +31,3 @@ rd.shuffle(password_list)
 for char in password_list:
     password += char
 print(password)
-
-
