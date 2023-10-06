@@ -1,16 +1,11 @@
-cube = float(input())
-epsilon = 0.001
-low, high = 0, cube
-guess = (low + high) / 2
+def count_local_variables():
+    a = 10
+    b = "Hello"
+    c = [1, 2, 3]
+    d = {1: 2, 3: 4}
+    local_variables = locals()
+    local_variables_count = len(local_variables) - 1
+    return local_variables_count
 
-while True:
-    if abs(guess ** 3 - cube) >= epsilon:
-        if guess ** 3 < cube:
-            low = guess
-        else:
-            high = guess
-        guess = (low + high) / 2.0
-    else:
-        break
 
-print(f"cube root is {round(guess)}")
+print(f"The number of local variables is :{count_local_variables()}")
