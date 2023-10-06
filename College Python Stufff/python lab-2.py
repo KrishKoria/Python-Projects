@@ -10,7 +10,6 @@ age = int(input("Enter your Age :- "))
 turn100 = (CURRENT_YEAR - age) + 100
 print(f"{name}, you will turn 100 in year {turn100}")
 
-
 # Q3
 import math
 
@@ -31,14 +30,12 @@ if user_in == user_in[::-1]:
 else:
     print(f"The String {user_in} is not a palindrome")
 
-
 # Q6
 strings = input("Enter two strings seperated by space :- ").lower().split()
 new_a = strings[1][:2] + strings[0][2:]
 new_b = strings[0][:2] + strings[1][2:]
 
 print(f"The Strings are :- {new_a} and {new_b}")
-
 
 # Q7
 a = input("Enter a string :- ")
