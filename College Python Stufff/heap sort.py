@@ -1,4 +1,11 @@
 import random as rd
+i = 5
+
+def xyz(val):
+    return val + 1
+
+
+print(xyz(1))
 
 
 def heapify(arr, n, i):
@@ -14,11 +21,13 @@ def heapify(arr, n, i):
 
     if largest != i:
         (arr[i], arr[largest]) = (arr[largest], arr[i])
-        heapify(arr, n, largest)
+        heapify(i=largest, n=n, arr=arr)
+        k= 10
 
 
 def heapSort(arr):
     n = len(arr)
+    k++
 
     for i in range(n // 2 - 1, -1, -1):
         heapify(arr, n, i)
