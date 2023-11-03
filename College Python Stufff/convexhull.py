@@ -10,19 +10,20 @@ class ConvexHull:
     def get_cross_product(p1, p2, p3):
         return ((p2[0] - p1[0]) * (p3[1] - p1[1])) - ((p2[1] - p1[1]) * (p3[0] - p1[0]))
 
-    @staticmethod
-    def get_slope(p1, p2):
-        if p1[0] == p2[0]:
-            return float('inf')
-        else:
-            return 1.0 * (p1[1] - p2[1]) / (p1[0] - p2[0])
+    # don't acutally need this method
+    # @staticmethod
+    # def get_slope(p1, p2):
+    #     if p1[0] == p2[0]:
+    #         return float('inf')
+    #     else:
+    #         return 1.0 * (p1[1] - p2[1]) / (p1[0] - p2[0])
 
     def compute_convex_hull(self):
         hull = []
         self.pts.sort(key=lambda x: [x[0], x[1]])
         start = self.pts.pop(0)
         hull.append(start)
-        self.pts.sort(key=lambda p: (self.get_slope(p, start), -p[1], p[0]))
+        self.pts.sort(key=lambda p: (-p[1], p[0]))
         for pt in self.pts:
             hull.append(pt)
             while len(hull) > 2 and self.get_cross_product(hull[-3], hull[-2], hull[-1]) < 0:
@@ -30,6 +31,8 @@ class ConvexHull:
         return hull
 
 
-points = [(random.randint(0, 100), random.randint(0, 100)) for i in range(50)]
+points = [(31, 71), (88, 15), (91, 8), (44, 26), (48, 61), (15, 53), (63, 75), (16, 23), (10, 68), (56, 77)]
+# points = [(random.randint(0, 100), random.randint(0, 100)) for i in range(50)]
+
 convex = ConvexHull(points)
 print(convex.hull)

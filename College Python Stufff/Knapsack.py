@@ -6,14 +6,11 @@ def knapsack(val, wt, cap):
     fraction = [0] * len(val)
     for i in index:
         if wt[i] <= cap:
-            fraction[i] = 1
             max_val += val[i]
             cap -= wt[i]
         else:
-            fraction[i] = cap / wt[i]
             max_val += val[i] * cap / wt[i]
             break
-
 
     return max_val, fraction
 
