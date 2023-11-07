@@ -3,7 +3,6 @@ def knapsack(val, wt, cap):
     ratio = [v / w for v, w in zip(val, wt)]
     index.sort(key=lambda i: ratio[i], reverse=True)
     max_val = 0
-    fraction = [0] * len(val)
     for i in index:
         if wt[i] <= cap:
             max_val += val[i]
@@ -12,7 +11,7 @@ def knapsack(val, wt, cap):
             max_val += val[i] * cap / wt[i]
             break
 
-    return max_val, fraction
+    return max_val
 
 
 n = int(input("Enter Number of items :- "))

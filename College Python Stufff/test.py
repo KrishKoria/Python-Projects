@@ -1,19 +1,45 @@
-def job_scheduling(jobsList):
-    jobsList.sort(key=lambda x: x[2], reverse=True)
-    maxDeadline = max(jobsList, key=lambda x: x[1])[1]
-    schedule = [-1] * (maxDeadline + 1)
-    profit = 0
-    for job in jobsList:
-        deadline = job[1]
-        for i in range(deadline, 0, -1):
-            if schedule[i] == -1:
-                profit += job[2]
-                break
-
-    return profit
+import random as rd
 
 
-jobs = [(1, 9, 15), (2, 2, 2), (3, 5, 18), (4, 7, 1), (5, 4, 25)]
-total_profit = job_scheduling(jobs)
+def mergeSort(arr):
+    if len(arr) > 1:
+        m = len(arr) // 2
+        L = arr[:m]
+        R = arr[m:]
+        mergeSort(L)
+        mergeSort(R)
+        i = j = k = 0
+        while i < len(L) and j < len(R):
+            if L[i] <= R[j]:
+                arr[k] = L[i]
+                i += 1
+            else:
+                arr[k] = R[j]
+                j += 1
+            k += 1
+        while i < len(L):
+            arr[k] = L[i]
+            i += 1
+            k += 1
+        while j < len(R):
+            arr[k] = R[j]
+            j += 1
+            k += 1
 
-print("Total Profit:", total_profit)
+
+def printList(arr):
+    for i in range(len(arr)):
+        print(arr[i], end=" ")
+    print()
+
+
+if __name__ == '__main__':
+    val = []
+    for _ in range(0, 11):
+        val.append(rd.randint(0, 1000))
+
+    print("Given array is")
+    printList(val)
+    mergeSort(val)
+    print("\nSorted array is ")
+    printList(val)

@@ -13,8 +13,7 @@ def rabin_karp(T, P, n, m, d, q):
             to = (d * (to - ord(T[s]) * h) + ord(T[s + m])) % q
 
 
-
-T = "abananaaaabanananaaaaaaabanana"
+T = "bananabanana"
 P = "banana"
 n = len(T)
 m = len(P)
